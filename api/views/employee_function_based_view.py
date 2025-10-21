@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view
 
 # Create your views here.
 
-@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+@api_view(['GET', 'POST', 'DELETE'])
 def employeeView(request):
     if request.method == 'GET':
         employees = Employee.objects.all()
@@ -46,7 +46,7 @@ def employeeView(request):
         return Response({'message': 'Employee deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'DELETE'])
 def employee(request, employee_id):
     try:
         employee = Employee.objects.get(id=employee_id)
