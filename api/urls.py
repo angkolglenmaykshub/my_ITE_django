@@ -12,10 +12,10 @@ urlpatterns = [
 
     #cbv part
     path('cbv-students/', student_class_based_view.Student.as_view()),
-    path('cbv-student/<int:student_id>/', student_class_based_view.StudentDetail.as_view()),
+    path('cbv-students/<int:pk>/', student_class_based_view.StudentDetail.as_view()),
 
     path('cbv-employees/', employee_class_based_view.Employees.as_view()),
-    path('cbv-employees/<int:employee_id>/', employee_class_based_view.EmployeeDetail.as_view()),
+    path('cbv-employees/<int:pk>/', employee_class_based_view.EmployeeDetail.as_view()),
 
 ]
         

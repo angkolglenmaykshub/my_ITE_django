@@ -28,8 +28,8 @@ class StudentDetail(APIView):
             raise Http404
 
     def get(self, request, pk):
-        student = self.get_object(pk=pk)
-        serializer = StudentSerializer(student)
+        students = self.get_object(pk=pk)
+        serializer = StudentSerializer(students)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
@@ -44,6 +44,3 @@ class StudentDetail(APIView):
         student = self.get_object(pk)
         student.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
-
-    
