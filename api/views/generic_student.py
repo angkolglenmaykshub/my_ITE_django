@@ -7,7 +7,7 @@ from api.serializers import StudentSerializer
 #     serializer_class = EmployeeSerializer
 
 # Option 2
-class Students(generics.ListCreateAPIView):
+class Student(generics.ListCreateAPIView):
     queryset = Students.objects.all()
     serializer_class = StudentSerializer
 

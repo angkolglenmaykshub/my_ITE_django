@@ -5,7 +5,9 @@ from api.views import employee_function_based_view
 from api.views import student_class_based_view
 from api.views import employee_class_based_view
 from api.views import mixins_employee
-from api.views import mixins_student, generic_employee, generic_student
+from api.views import mixins_student
+from  api.views import generic_employee
+from  api.views import generic_student
 
 urlpatterns = [
     path('fbv-students/', student_function_based_view.studentView),
