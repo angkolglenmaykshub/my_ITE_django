@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path , include
 from django.http import HttpResponse
 from api.views import student_function_based_view
 from api.views import employee_function_based_view
@@ -8,6 +8,12 @@ from api.views import mixins_employee
 from api.views import mixins_student
 from  api.views import generic_employee
 from  api.views import generic_student
+from rest_framework.routers import DefaultRouter
+import api.views.employee_viewsets as viewsets_view
+
+router = DefaultRouter()
+router.register('viewsets-employees', viewsets_view.Employees, basename='viewsets-employees')
+router.register('model-viewsets-employees', viewsets_view.EmployeeModelViewSet)
 
 urlpatterns = [
     path('fbv-students/', student_function_based_view.studentView),
@@ -33,4 +39,7 @@ urlpatterns = [
     
     path('generic-student/', generic_student.Student.as_view()),
     path('generic-student-detail/<int:pk>/', generic_student.StudentDetail.as_view()),
+
+    #router path views
+    path('', include(router.urls)),
 ]
