@@ -33,7 +33,7 @@ class Student(viewsets.ViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def destroy(self, request, pk=None):  # rename from delete → destroy for consistency
+    def delete(self, request, pk=None):  # rename from delete → destroy for consistency
         student = get_object_or_404(Student, pk=pk)
         student.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
